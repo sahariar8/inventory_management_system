@@ -25,34 +25,26 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="" class=" waves-effect">
-                        <i class="ri-calendar-2-line"></i>
-                        <span>Calendar</span>
-                    </a>
-                </li>
-    
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
-                        <span>Email</span>
+                        <span>Manage Suppliers</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Inbox</a></li>
-                        <li><a href="">Read Email</a></li>
+                        <li><a href="{{ route('supplier.all') }}">All Suppliers</a></li>
+                        <li><a href="#">Add Suppliers</a></li>
                     </ul>
                 </li>
 
                 <li class="menu-title">Pages</li>
 
                 <li>
-                    <a href="#" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
                         <span>Authentication</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Login</a></li>
+                        <li><a href="#">Login</a></li>
                     </ul>
                 </li>
 

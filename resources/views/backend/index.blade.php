@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
-    <div class="page-content">
-        <div class="container-fluid">
+    {{-- <div class="page-content">
+        <div class="container-fluid"> --}}
             
             <!-- start page title -->
             <div class="row">
@@ -243,6 +243,6 @@
                     </div><!-- end card -->
                 </div>
             </div>
-        </div>
-    </div>
+        {{-- </div>
+    </div> --}}
 @endsection

@@ -51,12 +51,15 @@
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
+                <div class="page-content">
+                    <div class="container-fluid">
 
                @yield('content')
                 <!-- End Page-content -->
                
                 @include('backend.section.footer')
-                
+                    </div>
+                </div> 
             </div>
             <!-- end main content-->
 
@@ -81,6 +84,7 @@
         <!-- Required datatable js -->
         <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
         
         <!-- Responsive examples -->
         <script src="{{ asset('backend/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -114,6 +118,9 @@
         }
         @endif 
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
     </body>
 
