@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::controller(AdminController::class)->group(function () {
+Route::controller(AdminController::class)->middleware(['auth','verified'])->group(function () {
     Route::get('/admin/logout','logout')->name('admin.logout');
     Route::get('/profile','profile')->name('profile');
     Route::get('/profile/edit','editProfile')->name('profile.edit');
@@ -30,13 +31,27 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('change/password','updatePassword')->name('update.password');
 });
 
-Route::controller(SupplierController::class)->group(function () {
+// Supplier Routes
+
+Route::controller(SupplierController::class)->middleware(['auth','verified'])->group(function () {
     Route::get('supplier/all','AllSupplier')->name('supplier.all');
     Route::get('supplier/add','AddSupplier')->name('supplier.add');
     Route::post('supplier/store','StoreSupplier')->name('supplier.store');
     Route::get('supplier/edit/{id}','EditSupplier')->name('supplier.edit');
     Route::post('supplier/update','UpdateSupplier')->name('supplier.update');
     Route::get('supplier/delete/{id}','DeleteSupplier')->name('supplier.delete');
+    
+});
+
+// Customer Routes
+
+Route::controller(CustomerController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('customer/all','AllCustomer')->name('customer.all');
+    Route::get('customer/add','AddCustomer')->name('customer.add');
+    Route::post('customer/store','StoreCustomer')->name('customer.store');
+    Route::get('customer/edit/{id}','EditCustomer')->name('customer.edit');
+    Route::post('customer/update','UpdateCustomer')->name('customer.update');
+    Route::get('customer/delete/{id}','DeleteCustomer')->name('customer.delete');
     
 });
 
