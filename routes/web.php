@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,5 +58,56 @@ Route::controller(CustomerController::class)->middleware(['auth','verified'])->g
     Route::get('customer/delete/{id}','DeleteCustomer')->name('customer.delete');
     
 });
+
+// Unit Routes
+
+Route::controller(UnitController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('unit/all','AllUnit')->name('unit.all');
+    Route::get('unit/add','AddUnit')->name('unit.add');
+    Route::post('unit/store','StoreUnit')->name('unit.store');
+    Route::get('unit/edit/{id}','EditUnit')->name('unit.edit');
+    Route::post('unit/update','UpdateUnit')->name('unit.update');
+    Route::get('unit/delete/{id}','DeleteUnit')->name('unit.delete');
+    
+});
+
+// Category Routes
+
+Route::controller(CategoryController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('category/all','AllCategory')->name('category.all');
+    Route::get('category/add','AddCategory')->name('category.add');
+    Route::post('category/store','StoreCategory')->name('category.store');
+    Route::get('category/edit/{id}','EditCategory')->name('category.edit');
+    Route::post('category/update','UpdateCategory')->name('category.update');
+    Route::get('category/delete/{id}','DeleteCategory')->name('category.delete');
+    
+});
+
+// Product Routes
+
+Route::controller(ProductController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('product/all','AllProduct')->name('product.all');
+    Route::get('product/add','AddProduct')->name('product.add');
+    Route::post('product/store','StoreProduct')->name('product.store');
+    Route::get('product/edit/{id}','EditProduct')->name('product.edit');
+    Route::post('product/update','UpdateProduct')->name('product.update');
+    Route::get('product/delete/{id}','DeleteProduct')->name('product.delete');
+    
+});
+
+
+// Purchase Routes
+
+Route::controller(PurchaseController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('purchase/all','AllPurchase')->name('purchase.all');
+    Route::get('purchase/add','AddPurchase')->name('purchase.add');
+    Route::post('purchase/store','StorePurchase')->name('purchase.store');
+    Route::get('purchase/edit/{id}','EditPurchase')->name('purchase.edit');
+    Route::post('purchase/update','UpdatePurchase')->name('purchase.update');
+    Route::get('purchase/delete/{id}','DeletePurchase')->name('purchase.delete');
+    
+});
+
+
 
 require __DIR__.'/auth.php';
