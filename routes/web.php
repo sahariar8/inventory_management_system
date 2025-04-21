@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
@@ -102,9 +103,18 @@ Route::controller(PurchaseController::class)->middleware(['auth','verified'])->g
     Route::get('purchase/all','AllPurchase')->name('purchase.all');
     Route::get('purchase/add','AddPurchase')->name('purchase.add');
     Route::post('purchase/store','StorePurchase')->name('purchase.store');
-    Route::get('purchase/edit/{id}','EditPurchase')->name('purchase.edit');
-    Route::post('purchase/update','UpdatePurchase')->name('purchase.update');
+    Route::get('purchase/pending','PurchasePending')->name('purchase.pending');
+    Route::get('purchase/approve/{id}','PurchaseApprove')->name('purchase.approve');
+    
     Route::get('purchase/delete/{id}','DeletePurchase')->name('purchase.delete');
+    
+});
+
+// Default Routes
+
+Route::controller(DefaultController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('/get-category','getCategory')->name('get.category');
+    Route::get('/get-product','getProduct')->name('get.product');
     
 });
 
