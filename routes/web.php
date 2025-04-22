@@ -120,7 +120,7 @@ Route::controller(InvoiceController::class)->middleware(['auth','verified'])->gr
     Route::get('invoice/pending','InvoicePending')->name('invoice.pending');
     Route::get('invoice/approve/{id}','InvoiceApprove')->name('invoice.approve');
     Route::get('invoice/delete/{id}','DeleteInvoice')->name('invoice.delete');
-    
+    Route::post('/approval/store/{id}', 'ApprovalStore')->name('approval.store');
 });
 
 // Default Routes

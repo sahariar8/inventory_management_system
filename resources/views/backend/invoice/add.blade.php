@@ -21,7 +21,7 @@
                                 <div class="col-md-2">
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Date</label>
-                                        <input class="form-control example-date-input" name="date" type="date"
+                                        <input class="form-control example-date-input" name="date" value="{{ $date }}" type="date"
                                             id="date">
                                     </div>
                                 </div>

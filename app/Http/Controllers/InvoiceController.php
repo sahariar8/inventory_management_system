@@ -33,7 +33,8 @@ class InvoiceController extends Controller
             $invoice_data = Invoice::orderBy('id','desc')->first()->invoice_no;
             $invoice_no = $invoice_data + 1;    
         }
-        return view('backend.invoice.add',compact('category','customer','invoice_no'));
+        $date = date('Y-m-d');
+        return view('backend.invoice.add',compact('category','customer','invoice_no','date'));
     }
 
     public function StoreInvoice(Request $request)
@@ -155,7 +156,48 @@ class InvoiceController extends Controller
 
     public function InvoiceApprove($id)
     {
+        
+        $invoice = Invoice::with('invoiceDetails')->findOrFail($id);
+        $payment = payment::where('invoice_id',$id)->first();
+        
+        return view('backend.invoice.approve',compact('invoice','payment'));
+    }
+
+    public function ApprovalStore(Request $request,$id)
+    {
+       
+        foreach($request->selling_qty as $key => $val){
+            $invoice_details = InvoiceDetails::where('id',$key)->first();
+            $product = Product::where('id',$invoice_details->product_id)->first();
+            if($product->quantity < $request->selling_qty[$key]){
+
+                $notification = array(
+                    'message' => 'Sorry you approve Maximum Value',
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification); 
+            }
+        } // End foreach 
+
         $invoice = Invoice::findOrFail($id);
-        return view('backend.invoice.approve',compact('invoice'));
+        $invoice->updated_by = Auth::user()->id;
+        $invoice->status = '1';
+
+        DB::transaction(function() use($request,$invoice,$id){
+            foreach($request->selling_qty as $key => $val){
+             $invoice_details = InvoiceDetails::where('id',$key)->first();
+             $product = Product::where('id',$invoice_details->product_id)->first();
+             $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
+             $product->save();
+            } // end foreach
+
+            $invoice->save();
+        });
+
+        $notification = array(
+            'message' => 'Invoice Approve Successfully', 
+            'alert-type' => 'success'
+        );
+        return redirect()->route('invoice.pending')->with($notification);
     }
 }
