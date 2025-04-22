@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DefaultController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
@@ -110,11 +111,25 @@ Route::controller(PurchaseController::class)->middleware(['auth','verified'])->g
     
 });
 
+// Invoice Routes
+
+Route::controller(InvoiceController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('invoice/all','AllInvoice')->name('invoice.all');
+    Route::get('invoice/add','AddInvoice')->name('invoice.add');
+    Route::post('invoice/store','StoreInvoice')->name('invoice.store');
+    // Route::get('purchase/pending','PurchasePending')->name('purchase.pending');
+    // Route::get('purchase/approve/{id}','PurchaseApprove')->name('purchase.approve');
+    
+    // Route::get('purchase/delete/{id}','DeletePurchase')->name('purchase.delete');
+    
+});
+
 // Default Routes
 
 Route::controller(DefaultController::class)->middleware(['auth','verified'])->group(function () {
     Route::get('/get-category','getCategory')->name('get.category');
     Route::get('/get-product','getProduct')->name('get.product');
+    Route::get('/get-product-stock','getProductStock')->name('get.product.stock');
     
 });
 
