@@ -117,10 +117,9 @@ Route::controller(InvoiceController::class)->middleware(['auth','verified'])->gr
     Route::get('invoice/all','AllInvoice')->name('invoice.all');
     Route::get('invoice/add','AddInvoice')->name('invoice.add');
     Route::post('invoice/store','StoreInvoice')->name('invoice.store');
-    // Route::get('purchase/pending','PurchasePending')->name('purchase.pending');
-    // Route::get('purchase/approve/{id}','PurchaseApprove')->name('purchase.approve');
-    
-    // Route::get('purchase/delete/{id}','DeletePurchase')->name('purchase.delete');
+    Route::get('invoice/pending','InvoicePending')->name('invoice.pending');
+    Route::get('invoice/approve/{id}','InvoiceApprove')->name('invoice.approve');
+    Route::get('invoice/delete/{id}','DeleteInvoice')->name('invoice.delete');
     
 });
 
