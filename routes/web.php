@@ -8,6 +8,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
@@ -123,6 +124,17 @@ Route::controller(InvoiceController::class)->middleware(['auth','verified'])->gr
     Route::post('/approval/store/{id}', 'ApprovalStore')->name('approval.store');
     Route::get('/print/invoice/list', 'PrintInvoiceList')->name('print.invoice.list');
     Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
+    Route::get('/daily/invoice/report', 'DailyInvoiceReport')->name('daily.invoice.report');
+    Route::get('/daily/invoice/pdf', 'DailyInvoicePdf')->name('daily.invoice.pdf');
+});
+
+
+// Stock Routes
+
+Route::controller(StockController::class)->middleware(['auth','verified'])->group(function () {
+    Route::get('stock/report','stockReport')->name('stock.report');
+    Route::get('/stock/report/pdf', 'StockReportPdf')->name('stock.report.pdf'); 
+   
 });
 
 // Default Routes

@@ -30,7 +30,8 @@
                                 </h4>
                                 <h3>
                                     <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo"
-                                        height="24" />Shahariar Shopping Mall
+                                        height="26" class="mb-1" />
+                                        <span class="mt-2"> Shahariar Shopping Mall</span>
                                 </h3>
                             </div>
                             <hr>
@@ -38,7 +39,7 @@
                             <div class="row">
                                 <div class="col-6 mt-4">
                                     <address>
-                                        <strong>Sahariar Shopping Mall:</strong><br>
+                                        <strong>Sahariar Shopping Mall</strong><br>
                                         Mirpur 11.5, Dhaka-1216<br>
                                         sahariaralam8@gmail.com
                                     </address>
