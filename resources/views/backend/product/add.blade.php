@@ -60,7 +60,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-3 col-form-label">Product Quantity</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="number" name="quantity" value="{{ old('quantity') }}">
@@ -68,7 +68,7 @@
                                     <span class="text-danger">{{ $message }}</span>   
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <button type="submit" class="btn btn-rounded btn-primary d-flex justify-content-end">Add Product</button>
                       </form>
                     </div>

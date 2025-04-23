@@ -86,26 +86,26 @@
                                 @endforeach
                                 <tr>
                                     <td colspan="6"> Sub Total </td>
-                                     <td > {{ $total_sum }} </td>
+                                     <td class="text-center"> {{ $total_sum }} </td>
                                 </tr>
                                  <tr>
                                     <td colspan="6"> Discount </td>
-                                     <td > {{ $payment->discount_amount }} </td>
+                                     <td class="text-center"> {{ $payment->discount_amount }} </td>
                                 </tr>
                         
                                  <tr>
                                     <td colspan="6"> Paid Amount </td>
-                                     <td >{{ $payment->paid_amount }} </td>
+                                     <td class="text-center">{{ $payment->paid_amount }} </td>
                                 </tr>
                         
                                  <tr>
                                     <td colspan="6"> Due Amount </td>
-                                     <td > {{ $payment->due_amount }} </td>
+                                     <td class="text-center"> {{ $payment->due_amount }} </td>
                                 </tr>
                         
                                 <tr>
                                     <td colspan="6"> Grand Amount </td>
-                                     <td >{{ $payment->total_amount }}</td>
+                                     <td class="text-center">{{ $payment->total_amount }}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -33,7 +33,7 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'unit_id' => 'required|exists:units,id',
             'name' => 'required',
-            'quantity' => 'required|numeric',
+            // 'quantity' => 'required|numeric',
         ]);
 
         $data['created_by'] = auth()->user()->id;
@@ -64,7 +64,7 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'unit_id' => 'required|exists:units,id',
             'name' => 'required',
-            'quantity' => 'required|numeric',
+            // 'quantity' => 'required|numeric',
         ]);
 
         $data['updated_by'] = auth()->user()->id;

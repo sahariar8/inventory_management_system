@@ -186,6 +186,8 @@ class InvoiceController extends Controller
         DB::transaction(function() use($request,$invoice,$id){
             foreach($request->selling_qty as $key => $val){
              $invoice_details = InvoiceDetails::where('id',$key)->first();
+             $invoice_details->status = '1';
+             $invoice_details->save();
              $product = Product::where('id',$invoice_details->product_id)->first();
              $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
              $product->save();
@@ -218,6 +220,12 @@ class InvoiceController extends Controller
 
     public function DailyInvoiceReport(Request $request)
     {
+       
+        return view('backend.invoice.daily_invoice_report');
+    }
+
+    public function DailyInvoicePdf(Request $request)
+    {
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
         $allData = Invoice::whereBetween('date',[$sdate,$edate])->where('status','1')->get();
@@ -226,10 +234,5 @@ class InvoiceController extends Controller
         $start_date = date('Y-m-d',strtotime($request->start_date));
         $end_date = date('Y-m-d',strtotime($request->end_date));
         return view('backend.pdf.daily_invoice',compact('allData','start_date','end_date'));
-    }
-
-    public function DailyInvoicePdf()
-    {
-        
     }
 }
