@@ -134,6 +134,9 @@ Route::controller(InvoiceController::class)->middleware(['auth','verified'])->gr
 Route::controller(StockController::class)->middleware(['auth','verified'])->group(function () {
     Route::get('stock/report','stockReport')->name('stock.report');
     Route::get('/stock/report/pdf', 'StockReportPdf')->name('stock.report.pdf'); 
+    Route::get('/stock/supplier-wise', 'StockSupplierWise')->name('stock.supplier.wise'); 
+    Route::get('/supplier/wise/pdf', 'SupplierWisePdf')->name('supplier.wise.pdf');
+    Route::get('/product/wise/pdf', 'ProductWisePdf')->name('product.wise.pdf');
    
 });
 
