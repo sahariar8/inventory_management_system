@@ -121,6 +121,8 @@ Route::controller(InvoiceController::class)->middleware(['auth','verified'])->gr
     Route::get('invoice/approve/{id}','InvoiceApprove')->name('invoice.approve');
     Route::get('invoice/delete/{id}','DeleteInvoice')->name('invoice.delete');
     Route::post('/approval/store/{id}', 'ApprovalStore')->name('approval.store');
+    Route::get('/print/invoice/list', 'PrintInvoiceList')->name('print.invoice.list');
+    Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
 });
 
 // Default Routes
