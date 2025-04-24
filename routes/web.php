@@ -62,6 +62,10 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::get('/customer/invoice/details/{id}', 'CustomerInvoiceDetails')->name('customer.invoice.details');
         Route::get('/paid/customer', 'PaidCustomer')->name('paid.customer');
         Route::get('/paid/customer/print/pdf', 'PaidCustomerPrintPdf')->name('paid.customer.print.pdf');
+
+        Route::get('/customer/wise/report', 'CustomerWiseReport')->name('customer.wise.report');
+        Route::get('/customer/wise/credit/report', 'CustomerWiseCreditReport')->name('customer.wise.credit.report');
+        Route::get('/customer/wise/paid/report', 'CustomerWisePaidReport')->name('customer.wise.paid.report');
         
     });
     

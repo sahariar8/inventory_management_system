@@ -21,13 +21,15 @@
 
                 <li>
                     <a href="" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
+                        {{-- <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span> --}}
+                        <a href="{{ url('/dashboard') }}" class="waves-effect">
+                            <i class="fa-solid fa-house-chimney"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-hotel-fill"></i>
                         <span>Manage Suppliers</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -37,18 +39,19 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-shield-user-fill"></i>
                         <span>Manage Customers</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('customer.all') }}">All Customers</a></li>
                         <li><a href="{{ route('credit.customer') }}">Credit Customers</a></li>
                         <li><a href="{{ route('paid.customer') }}">Paid Customers</a></li>
+                        <li><a href="{{ route('customer.wise.report') }}">Customer Wise Report</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-delete-back-fill"></i>
                         <span>Manage Units</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -57,7 +60,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-apps-2-fill"></i>
                         <span>Manage Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -66,7 +69,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-reddit-fill"></i>
                         <span>Manage Product</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -75,7 +78,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-oil-fill"></i>
                         <span>Manage Purchase</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -86,7 +89,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-compass-2-fill"></i>
                         <span>Manage Invoice</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -101,7 +104,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-gift-fill"></i>
                         <span>Manage Stock</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -112,6 +115,17 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-profile-line"></i>
+                        <span>Support</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="pages-starter.html">Starter Page</a></li>
+                
+                    </ul>
+                </li>
+
+                {{-- <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
                         <span>Authentication</span>
                     </a>
@@ -120,7 +134,7 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Components</li>
+                <li class="menu-title">Components</li> --}}
             </ul>
         </div>
         <!-- Sidebar -->
