@@ -57,6 +57,11 @@ Route::middleware(['auth','verified'])->group(function () {
 
         Route::get('/credit/customer', 'CreditCustomer')->name('credit.customer');
         Route::get('/credit/customer/print/pdf', 'CreditCustomerPrintPdf')->name('credit.customer.print.pdf');
+        Route::get('/customer/edit/invoice/{id}', 'CustomerEditInvoice')->name('customer.edit.invoice');
+        Route::post('/customer/update/invoice/{invoice_id}', 'CustomerUpdateInvoice')->name('customer.update.invoice');
+        Route::get('/customer/invoice/details/{id}', 'CustomerInvoiceDetails')->name('customer.invoice.details');
+        Route::get('/paid/customer', 'PaidCustomer')->name('paid.customer');
+        Route::get('/paid/customer/print/pdf', 'PaidCustomerPrintPdf')->name('paid.customer.print.pdf');
         
     });
     
