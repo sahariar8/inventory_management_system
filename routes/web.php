@@ -54,6 +54,9 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::get('customer/edit/{id}','EditCustomer')->name('customer.edit');
         Route::post('customer/update','UpdateCustomer')->name('customer.update');
         Route::get('customer/delete/{id}','DeleteCustomer')->name('customer.delete');
+
+        Route::get('/credit/customer', 'CreditCustomer')->name('credit.customer');
+        Route::get('/credit/customer/print/pdf', 'CreditCustomerPrintPdf')->name('credit.customer.print.pdf');
         
     });
     
@@ -126,7 +129,7 @@ Route::middleware(['auth','verified'])->group(function () {
     
     
     // Stock Routes
-    
+        
     Route::controller(StockController::class)->group(function () {
         Route::get('stock/report','stockReport')->name('stock.report');
         Route::get('/stock/report/pdf', 'StockReportPdf')->name('stock.report.pdf'); 
