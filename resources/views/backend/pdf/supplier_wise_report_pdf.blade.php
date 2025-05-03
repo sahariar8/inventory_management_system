@@ -85,7 +85,7 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <td><strong>Sl </strong></td>
+                                                    <td class="text-center"><strong>Sl </strong></td>
                                                     <td class="text-center"><strong>Supplier Name </strong></td>
                                                     <td class="text-center"><strong>Unit </strong>
                                                     </td>
@@ -132,7 +132,7 @@
                                             <a href="javascript:window.print()"
                                                 class="btn btn-success waves-effect waves-light"><i
                                                     class="fa fa-print"></i></a>
-                                            <a href="#"
+                                            <a href="{{ route('supplier.wise.pdfDownload') }}"
                                                 class="btn btn-primary waves-effect waves-light ms-2">Download</a>
                                         </div>
                                     </div>

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StockController extends Controller
 {
@@ -22,6 +23,16 @@ class StockController extends Controller
         return view('backend.pdf.stock_report_pdf',compact('allData'));
     }
 
+    public function downloadPDF()
+    {
+        
+        $allData = Product::orderBy('supplier_id','asc')->orderBy('category_id','asc')->get();
+        $pdf = Pdf::loadView('backend.stock.stock_report_download', compact('allData'))->setPaper('a4', 'landscape');
+        return $pdf->download('stock-report.pdf');
+    }
+
+    
+
     public function StockSupplierWise()
     {
         $suppliers = Supplier::all();
@@ -33,6 +44,15 @@ class StockController extends Controller
  
         $allData = Product::orderBy('supplier_id','asc')->orderBy('category_id','asc')->where('supplier_id',$request->supplier_id)->get();
         return view('backend.pdf.supplier_wise_report_pdf',compact('allData'));
+
+    } 
+
+    public function SupplierWisePdfDownload(Request $request){
+ 
+        $allData = Product::orderBy('supplier_id','asc')->orderBy('category_id','asc')->where('supplier_id',$request->supplier_id)->get();
+      
+        $pdf = Pdf::loadView('backend.supplier.supplier_wise_report', compact('allData'))->setPaper('a4', 'landscape');
+        return $pdf->download('supplier-wise-report.pdf');
 
     } 
 
